@@ -7,7 +7,22 @@ from pandas.core.frame import DataFrame
 
 
 def makeToDirty(percent: float, data: pd.DataFrame) -> pd.DataFrame:
-    
+    """
+    makeToDirty
+
+    add dirty data to orinal data
+
+    Parameters
+    ---------------------------
+    percent: float
+        rate of adding dirty data(%)
+    data: DataFrame
+        original data to add dirty datat
+
+    Return
+    ----------------------------
+    DataFrame of added dirty data
+    """
     missData = data.copy(deep=True)
     numMissing = int(len(missData) * percent/ 100)
     columnNum = missData.columns
