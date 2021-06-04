@@ -18,12 +18,7 @@ from sklearn.feature_selection import chi2
 
 file = "airline/data/"
 data0=pd.read_csv(file + "scaled_data0.csv")
-data1=pd.read_csv(file +"scaled_data1.csv")
-data2=pd.read_csv(file +"scaled_data2.csv")
 data3=pd.read_csv(file +"scaled_data3.csv")
-data4=pd.read_csv(file +"scaled_data4.csv")
-data5=pd.read_csv(file +"scaled_data5.csv")
-
 
 X=data0.iloc[:,0:22]
 y=data0.iloc[:,-1]

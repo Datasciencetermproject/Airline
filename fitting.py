@@ -12,8 +12,13 @@ from sklearn.tree import DecisionTreeClassifier
 from xgboost import XGBClassifier
 
 
+
+
+# read target
 y = pd.read_csv("airline/data/" + "target.csv")['satisfaction']
 
+# read data
+# to use for loop, make dataframe list
 X=[]
 X.append(pd.read_csv("airline/data/" + "scaled_data0.csv"))
 X.append(pd.read_csv("airline/data/" + "scaled_data1.csv"))
@@ -22,20 +27,27 @@ X.append(pd.read_csv("airline/data/" + "scaled_data3.csv"))
 X.append(pd.read_csv("airline/data/" + "scaled_data4.csv"))
 X.append(pd.read_csv("airline/data/" + "scaled_data5.csv"))
 
-
-print("D")
+# find best parameter and dataset 
+print("Decision tree")
 for i in range(0,6):
+    # split to train and test
     train_x, test_x, train_y, test_y = train_test_split(X[i], y, test_size=0.3, random_state=1)
     param = {'max_depth':[10,20,30]}
 
     model = DecisionTreeClassifier()
+
+    # cross validation with grid search cross validation
     gscv = GridSearchCV(estimator=model, param_grid=param, cv=5, n_jobs=-1)
     gscv.fit(train_x,train_y)
+
+    # print result
     print("scaled data", i)
     print("best param: ",gscv.best_params_)
     print("best score: ",gscv.best_score_)
     print("\n\n")
 
+
+# repeat with each algorthms
 print("Bagging")
 for i in range(0,6):
     train_x, test_x, train_y, test_y = train_test_split(X[i], y, test_size=0.3, random_state=1)
