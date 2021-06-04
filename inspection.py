@@ -7,15 +7,15 @@ from sklearn import tree
 import seaborn as sns
 
 # read datasets
-y=pd.read_csv("airline/data/" + "target.csv")
+y=pd.read_csv("data/" + "target.csv")
 
 X = []
-X.append(pd.read_csv("airline/data/" + "scaled_data0.csv"))
-X.append(pd.read_csv("airline/data/" + "scaled_data1.csv"))
-X.append(pd.read_csv("airline/data/" + "scaled_data2.csv"))
-X.append(pd.read_csv("airline/data/" + "scaled_data3.csv"))
-X.append(pd.read_csv("airline/data/" + "scaled_data4.csv"))
-X.append(pd.read_csv("airline/data/" + "scaled_data5.csv"))
+X.append(pd.read_csv("data/" + "scaled_data0.csv"))
+X.append(pd.read_csv("data/" + "scaled_data1.csv"))
+X.append(pd.read_csv("data/" + "scaled_data2.csv"))
+X.append(pd.read_csv("data/" + "scaled_data3.csv"))
+X.append(pd.read_csv("data/" + "scaled_data4.csv"))
+X.append(pd.read_csv("data/" + "scaled_data5.csv"))
 
 
 # decision tree -----------------------------------------
